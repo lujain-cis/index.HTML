@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Razan 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #333;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: 'Pacifico', cursive;
+      padding-top: 60px;
+    }
+
+    
+    .cake {
+      position: relative;
+      width: 250px;
+      height: 200px;
+    }
+
+    .plate {
+      position: absolute;
+      bottom: -10px;
+      left: -10px;
+      width: 270px;
+      height: 110px;
+      background: #ccc;
+      border-radius: 50%;
+      box-shadow: 0 2px #aaa, 0 4px #aaa, 0 5px 40px rgba(0,0,0,0.5);
+    }
+
+    .layer {
+      position: absolute;
+      width: 250px;
+      height: 100px;
+      border-radius: 50%;
+      background: #553c13;
+    }
+
+    .layer-top { top: 0; }
+    .layer-middle { top: 33px; }
+    .layer-bottom { top: 66px; }
+
+    .icing {
+      position: absolute;
+      top: 2px; left: 5px;
+      width: 240px; height: 90px;
+      background: #945477;
+      border-radius: 50%;
+    }
+
+    .drip {
+      position: absolute;
+      background: #945477;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
+
+    .drip1 { top: 53px; left: 5px; width: 40px; height: 48px; transform: skewY(15deg); }
+    .drip2 { top: 69px; left: 181px; width: 50px; height: 60px; transform: skewY(-15deg); }
+    .drip3 { top: 54px; left: 90px; width: 80px; height: 60px; }
+
+    
+    .candles .candle {
+      position: absolute;
+      top: -30px;
+      width: 6px;
+      height: 35px;
+      background: #7B020B;
+      border-radius: 4px / 2px;
+      z-index: 10;
+    }
+
+    .candle::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 6px; height: 5px;
+      background: #91020f;
+      border-radius: 50%;
+    }
+
+    .flame {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      width: 8px;
+      height: 18px;
+      margin-left: -4px;
+      background: orange;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow:
+        0 0 5px rgba(255,165,0,0.5),
+        0 0 10px rgba(255,165,0,0.5),
+        0 0 20px rgba(255,165,0,0.5);
+      transform-origin: 50% 90%;
+      animation: flicker 1s ease-in-out infinite;
+      transition: opacity 0.4s ease-out;
+      cursor: pointer;
+    }
+
+    .flame.blown-out {
+      opacity: 0;
+      box-shadow: none;
+      animation: none;
+    }
+
+    @keyframes flicker {
+      0% { transform: skewX(5deg); opacity: 0.8; }
+      25% { transform: skewX(-5deg); opacity: 1; }
+      50% { transform: skewX(10deg); opacity: 0.9; }
+      75% { transform: skewX(-10deg); opacity: 1; }
+      100% { transform: skewX(5deg); opacity: 0.85; }
+    }
+
+    
+    .birthday-message {
+      margin-top: 220px;
+      font-size: 1.8rem;
+      color: #fff;
+      text-align: center;
+      animation: pop 1.2s ease-out forwards;
+      opacity: 1;
+    }
+
+    .birthday-message span {
+      color: #ff69b4;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  
+  <div class="cake">
+    <div class="plate"></div>
+    <div class="layer layer-bottom"></div>
+    <div class="layer layer-middle"></div>
+    <div class="layer layer-top"></div>
+    <div class="icing"></div>
+    <div class="drip drip1"></div>
+    <div class="drip drip2"></div>
+    <div class="drip drip3"></div>
+
+    <div class="candles">
+      
+      <div class="candle" style="left: 50%"><div class="flame"></div></div>
+      
+    </div>
+  </div>
+
+  
+  <div class="birthday-message">
+    🎂 Happy Birthday <span>Roza</span> — <span>Sweet 20</span> 🎈
+  </div>
+
+  
+  <script>
+    document.querySelectorAll('.flame').forEach(flame => {
+      flame.addEventListener('click', () => {
+        flame.classList.add('blown-out');
+      });
+    });
+  </script>
+
+</body>
+</html>
